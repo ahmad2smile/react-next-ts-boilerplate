@@ -7,9 +7,9 @@ import PublicRoute from "./PublicRoute/PublicRoute"
 
 import Loader from "../components/Loader/Loader"
 
-const DashboardComponent = React.lazy(() => import("../screens/Dashboard/DashboardComponent"))
-
 import { IProps } from "./__types/IProps"
+
+const DashboardComponent = React.lazy(() => import("../screens/Dashboard/DashboardComponent"))
 
 const LoginRoute = () => <div>WIP</div>
 const DashboardRoute = () => <Route exact path="/" component={DashboardComponent} />

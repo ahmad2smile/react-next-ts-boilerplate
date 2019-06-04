@@ -28,7 +28,10 @@ function stableSort<TRow extends IRow>(
 	return stabilizedThis.map((el: ReadonlyArray<TRow | number>) => el[0] as TRow)
 }
 
-function getSorting<TRow extends IRow>(orderType: "asc" | "desc", orderBy: string): (a: TRow, b: TRow) => number {
+function getSorting<TRow extends IRow>(
+	orderType: "asc" | "desc",
+	orderBy: string
+): (a: TRow, b: TRow) => number {
 	return orderType === "desc"
 		? (a: TRow, b: TRow): number => desc(a, b, orderBy)
 		: (a: TRow, b: TRow): number => -desc(a, b, orderBy)
@@ -42,7 +45,8 @@ function rowClickHandler(
 	handleClick: Function,
 	id: number
 ): ((event: React.MouseEvent<HTMLTableRowElement>) => void) | undefined {
-	return (event: React.MouseEvent<HTMLTableRowElement>): Function => handleClick && handleClick(event, id)
+	return (event: React.MouseEvent<HTMLTableRowElement>): Function =>
+		handleClick && handleClick(event, id)
 }
 
 function TableRows<TRow extends IRow, THead extends IHead>({
@@ -78,23 +82,27 @@ function TableRows<TRow extends IRow, THead extends IHead>({
 						>
 							{!!handleSelectClick && (
 								<TableCell padding="checkbox">
-									<InputField inputType={InputTypes.Checkbox} checked={isSelected} />
+									<InputField
+										inputType={InputTypes.Checkbox}
+										checked={isSelected}
+									/>
 								</TableCell>
 							)}
-							<TableCell className={classes.tableCell} component="th" scope="row" padding="none">
+							<TableCell
+								className={classes.tableCell}
+								component="th"
+								scope="row"
+								padding="none"
+							>
 								{row.name.component}
 							</TableCell>
 							{rowNames
 								.filter((rowName: string) => rowName !== "id" && rowName !== "name")
-								.map((rowName: string, i: number) => {
-									const isNumeric: boolean = columns.find((c: THead) => c.id === rowName).numeric
-
-									return (
-										<TableCell className={classes.tableCell} key={i} numeric={isNumeric}>
-											{row[rowName as string].component}
-										</TableCell>
-									)
-								})}
+								.map((rowName: string, i: number) => (
+									<TableCell className={classes.tableCell} key={i}>
+										{row[rowName as string].component}
+									</TableCell>
+								))}
 						</TableRow>
 					)
 				})}

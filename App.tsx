@@ -21,4 +21,4 @@ const App: React.SFC = (): JSX.Element => (
 	</Provider>
 )
 
-export default useSheet<"App", typeof styles>(styles)(App)
+export default useSheet(styles)(App)

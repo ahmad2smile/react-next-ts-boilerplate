@@ -5,8 +5,8 @@ import { TableValues } from "../__types/TableValues"
 
 export default (theme: Theme): StyleRules => ({
 	root: {
-		width    : "100%",
-		marginTop: theme.spacing.unit * TableValues.marginTopMultiplier
+		width: "100%",
+		marginTop: theme.spacing(TableValues.marginTopMultiplier)
 	},
 	table: {
 		minWidth: 1020

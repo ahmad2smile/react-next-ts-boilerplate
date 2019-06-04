@@ -1,7 +1,6 @@
-import { Styles } from "react-jss"
 import { Colors } from "../../../../theme"
 
-export const styles: Styles = {
+export default {
 	root: {
 		padding: 0,
 		color: Colors.primary,

@@ -10,13 +10,13 @@ import { HeaderRowValues } from "./__types/HeaderRowValues"
 
 import styles from "./styles/"
 
-const createSortHandler: Function = (property: number, onRequestSort: Function): Function => (event: Event): void =>
-	onRequestSort(event, property)
+const createSortHandler: Function = (property: number, onRequestSort: Function): Function => (
+	event: Event
+): void => onRequestSort(event, property)
 
-function HeaderRow ({
+function HeaderRow({
 	id,
 	classes,
-	numeric,
 	disablePadding,
 	label,
 	orderBy,
@@ -25,14 +25,12 @@ function HeaderRow ({
 }: IProps): JSX.Element {
 	return (
 		<TableCell
-			numeric={numeric}
 			className={classes.root}
 			padding={disablePadding ? "none" : "default"}
 			sortDirection={orderBy === id ? orderType : false}
 		>
 			<Tooltip
 				title="Sort"
-				placement={numeric ? "bottom-end" : "bottom-start"}
 				enterDelay={HeaderRowValues.enterDelay}
 				className={classes.toolTip}
 			>

@@ -22,7 +22,7 @@ function configureStore() {
 		// To use Reactotron for devTools
 		// Source: https://github.com/infinitered/reactotron
 		const reactotron = Reactotron.configure()
-			.use(sagaPlugin())
+			.use(sagaPlugin({}))
 			.use(reactotronRedux())
 			.connect()
 
@@ -33,7 +33,7 @@ function configureStore() {
 		// Imported as on Docs
 		const immutabilityCheckMiddleware = require("redux-immutable-state-invariant").default()
 
-		return reactotron.createStore(
+		return createStore(
 			rootReducer,
 			compose(applyMiddleware(sagaMiddleware, immutabilityCheckMiddleware))
 		)

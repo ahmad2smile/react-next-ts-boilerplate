@@ -4,7 +4,7 @@ import MuiCheckbox from "@material-ui/core/Checkbox"
 
 import { IProps } from "./__types/IProps"
 
-import { styles } from "./styles"
+import styles from "./styles"
 
 const Checkbox = ({ value, classes, ...rest }: IProps) => (
 	<MuiCheckbox
